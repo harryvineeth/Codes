@@ -5,10 +5,10 @@ void lazyinit()
     for(long long i=0;i<400003;++i)
         lazy[i]=tree[i]=0;
 }
- 
+
 long long querry(long long ss,long long se, long long node, long long i, long long j)
 {
- 
+
     if(lazy[node]!=0)
     {
         tree[node]+=(se-ss+1)*lazy[node];
@@ -17,7 +17,7 @@ long long querry(long long ss,long long se, long long node, long long i, long lo
             lazy[2*node+1]+=lazy[node];}
         lazy[node]=0;
     }
- 
+
     if(ss>j or se<i)
         return 0;
     if(ss>=i and se<=j)
@@ -28,7 +28,7 @@ long long querry(long long ss,long long se, long long node, long long i, long lo
 }
 void update(long long ss,long se,long long node,long long start,long long end,long long v)
 {
- 
+
     if(lazy[node]!=0)
     {
         tree[node]+=(se-ss+1)*lazy[node];
@@ -37,10 +37,10 @@ void update(long long ss,long se,long long node,long long start,long long end,lo
             lazy[2*node+1]+=lazy[node];}
         lazy[node]=0;
     }
- 
+
     if(ss>end or se<start)
         return;
- 
+
     if(ss>=start and se<=end)
         {
             tree[node]+=(se-ss+1)*v;
@@ -51,12 +51,12 @@ void update(long long ss,long se,long long node,long long start,long long end,lo
             }
             return ;
         }
- 
+
     update(ss,(ss+se)/2,2*node,start,end,v);
     update((ss+se)/2+1,se,2*node+1,start,end,v);
     tree[node]=tree[2*node]+tree[2*node+1];
 }
- 
+
 int main()
 {
     long long t;
@@ -86,3 +86,4 @@ int main()
         }
     }
     return 0;
+}

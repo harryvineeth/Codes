@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
- 
+
 int main() {
     double mw,mi,tw,ti,extra=0,dif,m;
     cin>>mw>>mi>>tw>>ti;

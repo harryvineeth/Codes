@@ -29,7 +29,7 @@ pair<long long,long long> querry(long long ss,long long se,long long node,long l
     c.first=max(a.first,b.first);
     c.second=max(min(a.first,b.first),max(a.second,b.second));
     return c;
- 
+
 }
 void update(long long ss,long long se,long long node,long long i,long long x)
 {
@@ -44,7 +44,7 @@ void update(long long ss,long long se,long long node,long long i,long long x)
     update((ss+se)/2+1,se,2*node+1,i,x);
     tree[node].first=max(tree[2*node].first,tree[2*node+1].first);
     tree[node].second=max(min(tree[2*node].first,tree[2*node+1].first),max(tree[2*node].second,tree[2*node+1].second));
- 
+
 }
 int main()
 {
